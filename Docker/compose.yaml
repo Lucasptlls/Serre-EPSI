@@ -35,20 +35,7 @@ services:
       - grafana-data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning:ro
     networks: [monitoring]
-
-  node-exporter:
-    image: prom/node-exporter:latest
-    container_name: node-exporter
-    restart: unless-stopped
-    command:
-      - --path.rootfs=/host
-    network_mode: host
-    pid: host
-    security_opt:
-      - label=disable 
-    volumes:
-      - /:/host:ro,rslave
-
+  
 volumes:
   prometheus-data:
   grafana-data:
