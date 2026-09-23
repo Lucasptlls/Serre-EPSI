@@ -43,7 +43,7 @@ services:
     network_mode: host
     pid: host
     security_opt:
-      - label=disable        # nécessaire avec SELinux pour lire /
+      - label=disable 
     volumes:
       - /:/host:ro,rslave
 
