@@ -1,5 +1,7 @@
 services:
   prometheus:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     image: prom/prometheus:latest
     container_name: prometheus
     restart: unless-stopped
