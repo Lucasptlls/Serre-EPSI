@@ -11,19 +11,19 @@ humidity = Gauge('esp32_humidity_percent', "Humidité de l'air")
 light = Gauge('esp32_light_lux', 'Luminosité ambiante')
 water_level = Gauge('esp32_water_level_percent', "Niveau d'eau du réservoir")
 
-# --- DHT22 réel sur GPIO4 ---
+# --- DHT22 sur GPIO4 ---
 dht_sensor = adafruit_dht.DHT22(board.D4)
 
 # --- Bipeur sur GPIO18 ---
 buzzer = Buzzer(18)
 
-# --- Seuils d'alerte (à ajuster selon vos plantes) ---
+# --- Seuils d'alerte ---
 TTEMP_MAX = 34.0
 TEMP_MIN = 10.0
 WATER_MIN = 15.0
 HUMIDITY_MAX = 80.0
 
-# --- Simulation en attendant les vrais capteurs luminosité/eau ---
+# ----- Simulation capteurs eau et luminosité car idée venu plus tard ------ 
 state = {"light": 5000.0, "water": 70.0}
 
 def read_dht22():
@@ -78,4 +78,3 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         buzzer.off()
         print("Arrêt propre, bipeur coupé")
-EOF
