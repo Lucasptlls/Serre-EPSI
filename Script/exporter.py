@@ -71,9 +71,9 @@ if __name__ == "__main__":
     print("Exporter démarré sur le port 8000 (DHT22 réel + luminosité/eau simulées + bipeur)")
     try:
         while True:
-            temp_c = read_dht22()
+            temp_c, hum = read_dht22()
             water_pct = simulate_light_and_water()
-            check_alerts(temp_c, water_pct)
+            check_alerts(temp_c, hum, water_pct)
             time.sleep(15)
     except KeyboardInterrupt:
         buzzer.off()
