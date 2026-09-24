@@ -6,10 +6,10 @@ import adafruit_dht
 from gpiozero import Buzzer
 
 # --- Métriques Prometheus ---
-temperature = Gauge('esp32_temperature_celsius', 'Température de la serre')
-humidity = Gauge('esp32_humidity_percent', "Humidité de l'air")
-light = Gauge('esp32_light_lux', 'Luminosité ambiante')
-water_level = Gauge('esp32_water_level_percent', "Niveau d'eau du réservoir")
+temperature = Gauge('pi_temperature_celsius', 'Température de la serre')
+humidity = Gauge('pi_humidity_air__percent', "Humidité de l'air")
+light = Gauge('pi_light_lux', 'Luminosité ambiante')
+water_level = Gauge('pi_water_level_percent', "Niveau d'eau du réservoir")
 
 # --- DHT22 sur GPIO4 ---
 dht_sensor = adafruit_dht.DHT22(board.D4)
