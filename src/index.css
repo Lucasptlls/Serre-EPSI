@@ -1,0 +1,100 @@
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+
+  /* Surfaces: off-white with a faint green cast, never stark #fff everywhere */
+  --color-canvas: #f5f6f1;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #eef1ea;
+
+  /* Hairlines. -line stays decorative (card edges); -line-strong meets 3:1 for interactive borders */
+  --color-line: #e2e6dc;
+  --color-line-strong: #8f9880;
+
+  /* Text */
+  --color-ink-900: #12150f;
+  --color-ink-600: #4b5245;
+  --color-ink-400: #6b7360;
+
+  /* Single accent: deep emerald, checked at 5.4:1+ on white */
+  --color-accent: #0e7a4d;
+  --color-accent-strong: #0a5c3a;
+  --color-accent-soft: #e4f3ea;
+
+  /* Status */
+  --color-warn: #a4650a;
+  --color-warn-strong: #7c4a08;
+  --color-warn-soft: #fbf0dc;
+
+  --color-danger: #c23b3b;
+  --color-danger-strong: #922e2e;
+  --color-danger-soft: #fbebeb;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: var(--color-canvas);
+    background-image:
+      linear-gradient(var(--color-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent-strong);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Instrument-panel corner brackets, used sparingly on the featured card only */
+  .corner-ticks {
+    position: relative;
+  }
+  .corner-ticks::before,
+  .corner-ticks::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    border-color: var(--color-line-strong);
+  }
+  .corner-ticks::before {
+    top: 14px;
+    left: 14px;
+    border-top: 1.5px solid;
+    border-left: 1.5px solid;
+  }
+  .corner-ticks::after {
+    bottom: 14px;
+    right: 14px;
+    border-bottom: 1.5px solid;
+    border-right: 1.5px solid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
