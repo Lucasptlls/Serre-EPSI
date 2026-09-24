@@ -1,4 +1,8 @@
-# React + TypeScript + Vite
+# SpaceFarm
+## Serre connecté réalisé lors de la semaine du 21 au 25 septembre au sein d'EPSI
+
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
